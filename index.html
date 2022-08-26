@@ -5,6 +5,7 @@
   <link rel="stylesheet" type="text/css" href="./css/reset.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+  <script src="./js/components/Tweet.js" defer></script>
   <script src="./js/app.js" defer></script>
 </head>
 <body>
@@ -22,10 +23,8 @@
       </div>
     </div>
     <div class="tweets">
-      <div class="tweet" v-for="tweet in tweets">
-        <h3>{{ username }}</h3>
-        <p>{{ tweet }}</p>
-      </div>
+      <tweet v-for="tweet in tweets" 
+             v-bind:message="tweet"></tweet>
     </div>
     <div class="settings">
       <h2>Settings</h2>
@@ -36,7 +35,7 @@
       <label for="tweet">New Tweet</label>
       <div class="new-tweet">
         <input type="text" value="tweet" placeholder="New Tweet" v-model="newTweet" />
-        <button v-on:click="tweets.push(newTweet)" >Add Tweet</button>
+        <button v-on:click="tweets.push(newTweet)">Add Tweet</button>
       </div>
     </div>
   </div>
